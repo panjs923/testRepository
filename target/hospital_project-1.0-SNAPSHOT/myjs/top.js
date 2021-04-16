@@ -2,7 +2,8 @@ var vm = new Vue({
     el:'#welcomdiv',
     data:{
         ub:{},
-        postlist:[]
+        postlist:[],
+        postid:''
      },
     methods:{
         //获取登录的用户
@@ -17,10 +18,12 @@ var vm = new Vue({
         getDeputyPosition:function () {
             var _this = this;
             axios.get("../user/getDeputyPosition.do").then(function (response) {
-                console.log(response.data)
                 _this.postlist = response.data;
             })
-        }
+        },
+
+        //切换副职位查询副职位的菜单列表
+
     }
 });
 vm.getLoginUser();

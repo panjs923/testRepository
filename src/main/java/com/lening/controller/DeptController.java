@@ -23,8 +23,6 @@ public class DeptController {
     @Autowired
     private DeptService deptService;
 
-    //fgjhghjgjhgjghjghg
-
     @RequestMapping("/getDeptList")
     public Page<DeptBean> getDeptList(@RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "3") Integer pageSize, @RequestBody DeptBean deptBean){
        return deptService.getDeptList(pageNum, pageSize, deptBean);
@@ -36,7 +34,7 @@ public class DeptController {
     }
 
     @RequestMapping("/saveDeptPost")
-    public ResultInfo saveDeptPost(Long id,@RequestBody Long[] postids){
+    public ResultInfo saveDeptPost(Long id, @RequestBody Long[] postids){
         try {
             deptService.saveDeptPost(id,postids);
             return new ResultInfo(true, "编辑成功");
