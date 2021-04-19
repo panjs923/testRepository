@@ -62,7 +62,16 @@ public class UserController {
         Set<String> urls = userService.getUserMeunUrlsById(ub);
         request.getSession().setAttribute("urls", urls);
 
-        return userService.getMeunList(ub);
+        //取出postid
+        Long postid = (Long) request.getSession().getAttribute("postid");
+        List<MeunBean> meunList = null;
+        if(postid!=null){
+            meunList = userService.getMeunListByPostid(postid,ub);
+        }else{
+            meunList = userService.getMeunList(ub);
+        }
+
+        return meunList;
     }
 
     //分配科室（回显）
@@ -107,5 +116,11 @@ public class UserController {
     public List<PostBean> getDeputyPosition(HttpServletRequest request){
         UserBean ub = (UserBean) request.getSession().getAttribute("ub");
         return userService.getDeputyPosition(ub.getId());
+    }
+
+    //将职位id存到session中
+    @RequestMapping("/toSavePortid")
+    public void toSavePortid(Long postid,HttpServletRequest request){
+         request.getSession().setAttribute("postid",postid);
     }
 }

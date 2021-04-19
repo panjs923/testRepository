@@ -225,6 +225,15 @@ public class UserServiceImpl implements UserService {
         return userMapper.getDeputyPosition(id);
     }
 
+    @Override
+    public List<MeunBean> getMeunListByPostid(Long postid,UserBean ub) {
+        if(postid!=null){
+            List<MeunBean> list = userMapper.getMeunListByPostid(ub.getId(),postid);
+            return list;
+        }
+        return null;
+    }
+
     @Test
     public void test(){
         String pwd = "123456";

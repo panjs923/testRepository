@@ -32,4 +32,6 @@ public interface UserService {
     Set<String> getUserMeunUrlsById(UserBean ub);
 
     List<PostBean> getDeputyPosition(Long id);
+
+    List<MeunBean> getMeunListByPostid(Long postid,UserBean ub);
 }

@@ -10,12 +10,12 @@
 <center>
     <div id="welcomdiv">
         <h3>医院管理系统</h3>
-        欢迎<b><font style="color: lightpink">{{ub.uname}}</font></b>登录此系统
-        <select v-model="postid" @click="changePost()">
-            <span v-for="p in postlist">
-                切换副职位<option :value="p.id">{{p.postname}}</option>
-            </span>
+        欢迎<b><font style="color: lightpink">{{ub.uname}}</font></b>登录此系统 &nbsp;&nbsp;&nbsp;&nbsp;
+        切换为<b><font style="color: #3D5A7D">副职位</font></b>：
+        <select v-model="postid" @change="changePost()">
+            <option  v-for="p in postlist" :value="p.id">{{p.postname}}</option>
         </select>
+
     </div>
 </center>
 <script type="text/javascript" src="../myjs/top.js"></script>

@@ -52,4 +52,6 @@ public interface UserMapper {
     Set<String> getUserMeunUrlsById(Long id);
 
     List<PostBean> getDeputyPosition(Long id);
+
+    List<MeunBean> getMeunListByPostid(@Param("userid") Long userid,@Param("postid") Long postid);
 }

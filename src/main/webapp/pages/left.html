@@ -12,6 +12,24 @@
     <script type="text/javascript" src="../js/jquery-1.8.2.js"></script>
     <script type="text/javascript" src="../js/jquery.ztree.all-3.3.js"></script>
 
+    <style>
+        .loading{
+            display: block;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 80px;
+            height: 30px;
+            background-color: #00B83F;
+            text-align: center;
+            line-height: 30px;
+            margin-left:20px;
+        }
+        a:link{
+            color: #ffffff;
+            font-size: 14px;
+        }
+    </style>
+
 </head>
 <script type="text/javascript">
     var setting={
@@ -56,6 +74,7 @@
     <div id="nodes">
         <ul id="treeClass" class="ztree"></ul>
     </div>
+    <a href="javascript:;" onclick="reloadMeun()" class="loading">点我刷新(:</a>
 <!-- <button onclick="getIds()">保存</button> -->
 </body>
 <script>
@@ -65,6 +84,11 @@
         for(var i=0;i<nodes.length;i++){
             alert(nodes[i].id);
         }
+    }
+
+    //刷新
+    function  reloadMeun() {
+        location.reload();
     }
 </script>
 </html>

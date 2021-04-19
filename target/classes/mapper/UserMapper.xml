@@ -149,6 +149,18 @@
       WHERE a.ismain = 0 and a.userid = #{userid}
 </select>
 
+  <!-- 切换副职位 -->
+  <select id="getMeunListByPostid" resultType="com.lening.entity.MeunBean">
+        select d.* FROM tb_user_post a
+        LEFT JOIN tb_post b on a.postid = b.id
+        LEFT JOIN tb_post_meun c on b.id = c.postid
+        LEFT JOIN tb_meun d on c.meunid = d.id
+        where d.isbutton = 0
+        and a.ismain = 0
+        and a.userid = #{userid}
+        and a.postid = #{postid}
+  </select>
+
 
   <select id="selectByExample" parameterType="com.lening.entity.UserBeanExample" resultMap="BaseResultMap">
     select
